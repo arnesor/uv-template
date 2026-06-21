@@ -32,7 +32,6 @@ Changelog = "https://github.com/{{cookiecutter.github_organization}}/{{cookiecut
 
 [dependency-groups]
 lint = [
-    "black[jupyter]>=25.11.0",
     "pre-commit>=4.4.0",
     "pre-commit-hooks>=6.0.0",
     "pydoclint>=0.8.3",
@@ -131,13 +130,18 @@ ignore = [
     "FBT001", # Allow boolean positional arguments in a function.
     "FBT002", # Allow boolean default positional arguments in a function.
     "E402",   # Supress module-import-not-at-top-of-file, needed in jupyter notebooks.
-    "E501",   # Supress line-too-long warnings: trust black's judgement on this one.
+    "E501",   # Supress line-too-long warnings: trust ruff's judgement on this one.
     "PLR2004", # Allow to compare with unnamed numerical constants.
+
+    # Disable rules conflicting with ruff as a formatter,
+    # see https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "E111",
+    "E114",
+    "E117",
+    "D206",
+    "D300",
 ]
 external = ["DOC"]  # Avoiding removing any codes starting with `DOC` from any `# noqa` directives.
-
-[tool.ruff.lint.isort]
-force-single-line = true
 
 [tool.ruff.lint.mccabe]
 max-complexity = 15

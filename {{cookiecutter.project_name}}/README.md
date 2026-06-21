@@ -10,7 +10,6 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project={{cookiecutter.github_organization}}_{{cookiecutter.project_name}}&metric=alert_status)][sonarquality]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
@@ -19,7 +18,6 @@
 [sonarcov]: https://sonarcloud.io/summary/overall?id={{cookiecutter.github_organization}}_{{cookiecutter.project_name}}
 [sonarquality]: https://sonarcloud.io/summary/overall?id={{cookiecutter.github_organization}}_{{cookiecutter.project_name}}
 [pre-commit]: https://github.com/pre-commit/pre-commit
-[black]: https://github.com/psf/black
 
 ## Features
 

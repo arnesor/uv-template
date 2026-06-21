@@ -4,6 +4,7 @@ version = "{{cookiecutter.version}}"
 description = "{{cookiecutter.friendly_name}}"
 authors = [{ name = "{{cookiecutter.author}}", email = "{{cookiecutter.email}}" }]
 license = "{{cookiecutter.license}}"
+license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.12"
 classifiers = [
@@ -12,9 +13,6 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
-{% if cookiecutter.license == "MIT" %}
-  "License :: OSI Approved :: MIT License",
-{% endif %}
   "Development Status :: 4 - Beta",
   "Typing :: Typed",
 ]

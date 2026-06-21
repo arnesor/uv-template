@@ -24,7 +24,16 @@ This template is simplified from Statistics Norway's PyPI template by removing P
 To create a new project using this template:
 
 ```console
-cruft create https://github.com/your-github-org-or-username/uv-template.git
+cruft create https://github.com/arnesor/uv-template.git
+```
+
+### Windows
+
+If you are on Windows you need to set the PYTHONUTF8 environment variable to 1 first:
+
+```console
+$env:PYTHONUTF8=1
+cruft create https://github.com/arnesor/uv-template.git
 ```
 
 ### Checking and Updating Template Changes

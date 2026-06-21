@@ -23,18 +23,15 @@ def convert_to_utf8():
         if path.is_file():
             # Check if file is already valid UTF-8 to prevent double-encoding
             try:
-                with path.open(mode="r", encoding="utf-8") as f:
-                    f.read()
+                path.read_text(encoding="utf-8")
                 continue
             except UnicodeDecodeError:
                 pass
 
             # If not valid UTF-8, decode with system encoding and write as UTF-8
             try:
-                with path.open(mode="r", encoding=sys_encoding, errors="replace") as f:
-                    content = f.read()
-                with path.open(mode="w", encoding="utf-8") as f:
-                    f.write(content)
+                content = path.read_text(encoding=sys_encoding)
+                path.write_text(content, encoding="utf-8")
             except Exception:
                 pass
 

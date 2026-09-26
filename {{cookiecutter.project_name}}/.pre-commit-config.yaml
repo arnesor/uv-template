@@ -57,11 +57,6 @@ repos:
         entry: check-ast
         language: system
         types: [python]
-      - id: pydoclint
-        name: pydoclint
-        entry: pydoclint
-        language: system
-        types: [python]
       - id: ruff
         name: ruff
         entry: ruff check --fix --exit-non-zero-on-fix

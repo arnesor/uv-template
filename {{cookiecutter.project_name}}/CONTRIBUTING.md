@@ -37,7 +37,7 @@ You need Python 3.12+ and [uv]:
 2. Synchronize the development virtual environment and dependencies:
 
    ```console
-   uv sync --all-extras
+   uv sync
    ```
 
 3. Install the pre-commit hooks:
@@ -62,7 +62,8 @@ We run several types of checks on the codebase.
 Unit tests are located in the `tests/` directory and are written using the [pytest] testing framework. Run them with coverage:
 
 ```console
-uv run pytest
+uv run coverage run -m pytest
+uv run coverage report
 ```
 
 ### Run Type Checking
@@ -97,13 +98,19 @@ Run doctests using [xdoctest]:
 uv run python -m xdoctest --modname={{cookiecutter.package_name}} --command=all
 ```
 
-### Run Runtime Typeguard Checks
+### Run Dependency Checks
 
-Check type compliance at runtime:
+Check that declared and imported dependencies agree:
 
 ```console
-uv run pytest --typeguard-packages={{cookiecutter.package_name}}
+uv run deptry .
 ```
+
+## How to release a new version
+
+Update `project.version` in `pyproject.toml` using semantic versioning and merge the change into `main` or `master`.
+After all CI checks pass, Release Drafter publishes a GitHub release tagged with the new version.
+GitHub releases contain source archives only.
 
 ## How to submit changes
 
@@ -112,7 +119,7 @@ Open a [pull request] to submit changes to this project.
 Your pull request needs to meet the following guidelines for acceptance:
 
 - The test suite must pass without errors and warnings.
-- Include unit tests. This project maintains 100% code coverage.
+- Include unit tests and maintain the configured coverage threshold.
 
 Feel free to submit early, though—we can always iterate on this.
 

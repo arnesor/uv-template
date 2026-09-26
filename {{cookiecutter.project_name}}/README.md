@@ -1,9 +1,11 @@
 # {{ cookiecutter.friendly_name }}
 
+{% if cookiecutter.publish_to_pypi == "yes" %}
 [![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.project_name}}.svg)][pypi status]
 [![Status](https://img.shields.io/pypi/status/{{cookiecutter.project_name}}.svg)][pypi status]
 [![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.project_name}})][pypi status]
 [![License](https://img.shields.io/pypi/l/{{cookiecutter.project_name}})][license]
+{% endif %}
 
 [![Tests](https://github.com/{{cookiecutter.github_organization}}/{{cookiecutter.project_name}}/actions/workflows/tests.yml/badge.svg)][tests]
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project={{cookiecutter.github_organization}}_{{cookiecutter.project_name}}&metric=coverage)][sonarcov]
@@ -13,7 +15,9 @@
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
+{% if cookiecutter.publish_to_pypi == "yes" %}
 [pypi status]: https://pypi.org/project/{{cookiecutter.project_name}}/
+{% endif %}
 [tests]: https://github.com/{{cookiecutter.github_organization}}/{{cookiecutter.project_name}}/actions?workflow=Tests
 [sonarcov]: https://sonarcloud.io/summary/overall?id={{cookiecutter.github_organization}}_{{cookiecutter.project_name}}
 [sonarquality]: https://sonarcloud.io/summary/overall?id={{cookiecutter.github_organization}}_{{cookiecutter.project_name}}
@@ -27,6 +31,7 @@
 
 - TODO
 
+{% if cookiecutter.publish_to_pypi == "yes" %}
 ## Installation
 
 You can install _{{cookiecutter.friendly_name}}_ via [pip] or [uv] from [PyPI]:
@@ -34,6 +39,7 @@ You can install _{{cookiecutter.friendly_name}}_ via [pip] or [uv] from [PyPI]:
 ```console
 uv add {{cookiecutter.project_name}}
 ```
+{% endif %}
 
 ## Usage
 
@@ -58,7 +64,9 @@ please [file an issue] along with a detailed description.
 
 This project was generated from a template adapted from Statistics Norway's [SSB PyPI Template].
 
+{% if cookiecutter.publish_to_pypi == "yes" %}
 [pypi]: https://pypi.org/
+{% endif %}
 [ssb pypi template]: https://github.com/statisticsnorway/ssb-pypitemplate
 [file an issue]: https://github.com/{{cookiecutter.github_organization}}/{{cookiecutter.project_name}}/issues
 [uv]: https://github.com/astral-sh/uv

@@ -19,7 +19,9 @@ jobs:
       matrix:
         include:
           - { python: "3.13", os: "ubuntu-latest", session: "pre-commit" }
+{% if cookiecutter.publish_to_pypi == "yes" %}
           - { python: "3.13", os: "ubuntu-latest", session: "build" }
+{% endif %}
           - { python: "3.12", os: "ubuntu-latest", session: "mypy" }
           - { python: "3.13", os: "ubuntu-latest", session: "mypy" }
           - { python: "3.14", os: "ubuntu-latest", session: "mypy" }
@@ -88,12 +90,14 @@ jobs:
         run: |
           if [ "${{ "{{ matrix.session }}" }}" = "pre-commit" ]; then
             uv run pre-commit run --all-files --hook-stage=manual --show-diff-on-failure
+{% if cookiecutter.publish_to_pypi == "yes" %}
           elif [ "${{ "{{ matrix.session }}" }}" = "build" ]; then
             uv build --no-sources
             uv run --isolated --no-project --with dist/*.whl python -c "import {{cookiecutter.package_name}}"
             uv run --isolated --no-project --with dist/*.whl {{cookiecutter.project_name}} --help
             uv run --isolated --no-project --with dist/*.tar.gz python -c "import {{cookiecutter.package_name}}"
             uv run --isolated --no-project --with dist/*.tar.gz {{cookiecutter.project_name}} --help
+{% endif %}
           elif [ "${{ "{{ matrix.session }}" }}" = "mypy" ]; then
             uv run mypy src tests
           elif [ "${{ "{{ matrix.session }}" }}" = "tests" ]; then

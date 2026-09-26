@@ -27,6 +27,8 @@ To create a new project using this template:
 cruft create https://github.com/arnesor/uv-template.git
 ```
 
+The template includes PyPI-facing documentation and artifact validation by default. Set `publish_to_pypi=no` for an internal project; this removes that documentation and artifact-build CI. `script_support` defaults to `project-local`, with options for `none`, `standalone`, or `both` script layouts.
+
 ### Windows
 
 If you are on Windows you need to set the PYTHONUTF8 environment variable to 1 first:

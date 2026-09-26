@@ -8,6 +8,8 @@
   "email": "your-email@example.com",
   "github_organization": "your-github-org-or-username",
   "version": "0.0.0",
+  "publish_to_pypi": ["yes", "no"],
+  "script_support": ["project-local", "none", "standalone", "both"],
   "license": ["MIT", "Apache-2.0", "GPL-3.0"],
   "development_status": [
     "Development Status :: 1 - Planning",

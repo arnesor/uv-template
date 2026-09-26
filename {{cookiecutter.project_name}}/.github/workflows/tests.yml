@@ -19,6 +19,7 @@ jobs:
       matrix:
         include:
           - { python: "3.13", os: "ubuntu-latest", session: "pre-commit" }
+          - { python: "3.13", os: "ubuntu-latest", session: "build" }
           - { python: "3.12", os: "ubuntu-latest", session: "mypy" }
           - { python: "3.13", os: "ubuntu-latest", session: "mypy" }
           - { python: "3.14", os: "ubuntu-latest", session: "mypy" }
@@ -48,7 +49,7 @@ jobs:
           echo "version=$UV_VERSION" >> $env:GITHUB_OUTPUT
 
       - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b  # v8.1.0
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
         with:
           enable-cache: true
           version: {{ "${{ steps.uv-version.outputs.version }}" }}
@@ -87,6 +88,12 @@ jobs:
         run: |
           if [ "${{ "{{ matrix.session }}" }}" = "pre-commit" ]; then
             uv run pre-commit run --all-files --hook-stage=manual --show-diff-on-failure
+          elif [ "${{ "{{ matrix.session }}" }}" = "build" ]; then
+            uv build --no-sources
+            uv run --isolated --no-project --with dist/*.whl python -c "import {{cookiecutter.package_name}}"
+            uv run --isolated --no-project --with dist/*.whl {{cookiecutter.project_name}} --help
+            uv run --isolated --no-project --with dist/*.tar.gz python -c "import {{cookiecutter.package_name}}"
+            uv run --isolated --no-project --with dist/*.tar.gz {{cookiecutter.project_name}} --help
           elif [ "${{ "{{ matrix.session }}" }}" = "mypy" ]; then
             uv run mypy src tests
           elif [ "${{ "{{ matrix.session }}" }}" = "tests" ]; then
@@ -125,7 +132,7 @@ jobs:
           echo "version=$UV_VERSION" >> $env:GITHUB_OUTPUT
 
       - name: Install uv
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b  # v8.1.0
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
         with:
           enable-cache: true
           version: {{ "${{ steps.uv-version.outputs.version }}" }}

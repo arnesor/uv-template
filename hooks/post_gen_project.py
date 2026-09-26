@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import json
 import locale
+import subprocess
 import sys
 from pathlib import Path
 
@@ -54,6 +55,12 @@ def reindent_cookiecutter_json():
             io.write("\n")
 
 
+def generate_uv_lock():
+    """Generate the lockfile required by the generated CI workflow."""
+    subprocess.run(["uv", "lock"], check=True)
+
+
 if __name__ == "__main__":
     convert_to_utf8()
     reindent_cookiecutter_json()
+    generate_uv_lock()

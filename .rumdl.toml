@@ -1,0 +1,12 @@
+[global]
+exclude = ["*cookiecutter.project_name*"]
+flavor = "gfm"
+line-length = 100
+
+[MD013]
+code-blocks = false
+line-length = 100
+reflow = true
+reflow-length-exemptions = true
+reflow-mode = "semantic-line-breaks"
+tables = false

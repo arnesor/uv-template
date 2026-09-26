@@ -1,6 +1,7 @@
 # Project-Local Scripts
 
-Place scripts that use this project's dependencies or import `{{cookiecutter.package_name}}` here. Keep reusable logic under `src/{{cookiecutter.package_name}}` and make scripts thin entry points.
+Place scripts that use this project's dependencies or import `{{cookiecutter.package_name}}` here.
+Keep reusable logic under `src/{{cookiecutter.package_name}}` and make scripts thin entry points.
 
 Run a script from the project root:
 

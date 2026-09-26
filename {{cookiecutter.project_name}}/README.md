@@ -37,8 +37,7 @@ _{{cookiecutter.friendly_name}}_ is free and open source software.
 
 ## Issues
 
-If you encounter any problems,
-please [file an issue] along with a detailed description.
+If you encounter any problems, please [file an issue] along with a detailed description.
 
 ## Credits
 
@@ -46,8 +45,6 @@ This project was generated with the [Python uv project template].
 
 [python uv project template]: https://github.com/arnesor/uv-template
 [file an issue]: https://github.com/{{cookiecutter.github_organization}}/{{cookiecutter.project_name}}/issues
-[uv]: https://github.com/astral-sh/uv
-
 <!-- github-only -->
 
 [license]: https://github.com/{{cookiecutter.github_organization}}/{{cookiecutter.project_name}}/blob/main/LICENSE

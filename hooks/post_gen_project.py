@@ -38,13 +38,8 @@ def convert_to_utf8():
                 pass
 
 
-def reindent_cookiecutter_json():
-    """Indent .cookiecutter.json using two spaces.
-
-    The jsonify extension distributed with Cookiecutter uses an indentation
-    width of four spaces. This conflicts with the default indentation width of
-    Prettier for JSON files. Prettier is run as a pre-commit hook in CI.
-    """
+def normalize_cookiecutter_json():
+    """Sort .cookiecutter.json and indent it using two spaces."""
     path = Path(".cookiecutter.json")
 
     if path.exists():
@@ -73,6 +68,6 @@ def remove_unused_script_directories():
 
 if __name__ == "__main__":
     convert_to_utf8()
-    reindent_cookiecutter_json()
+    normalize_cookiecutter_json()
     remove_unused_script_directories()
     generate_uv_lock()

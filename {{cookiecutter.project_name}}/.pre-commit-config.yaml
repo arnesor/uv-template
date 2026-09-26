@@ -34,6 +34,13 @@ repos:
         language: system
         types: [text]
 
+      # Markdown
+      - id: rumdl
+        name: rumdl
+        entry: rumdl check --fix
+        language: system
+        types: [markdown]
+
       # Serialization format checkers
       - id: check-yaml
         name: Check Yaml

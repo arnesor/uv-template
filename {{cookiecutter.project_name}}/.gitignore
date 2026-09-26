@@ -160,6 +160,9 @@ cython_debug/
 # Ruff stuff:
 .ruff_cache/
 
+# rumdl
+.rumdl_cache/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

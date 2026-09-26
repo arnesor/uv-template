@@ -1,8 +1,8 @@
 # Contributor Guide
 
 Thank you for your interest in improving this project.
-This project is open-source under the [{{cookiecutter.license.replace("-", " ")}} license] and
-welcomes contributions in the form of bug reports, feature requests, and pull requests.
+This project is open-source under the [{{cookiecutter.license.replace("-", " ")}} license]
+and welcomes contributions in the form of bug reports, feature requests, and pull requests.
 
 Here is a list of important resources for contributors:
 
@@ -22,8 +22,7 @@ When filing an issue, make sure to answer these questions:
 - What did you expect to see?
 - What did you see instead?
 
-The best way to get your bug fixed is to provide a test case,
-and/or steps to reproduce the issue.
+The best way to get your bug fixed is to provide a test case, and/or steps to reproduce the issue.
 
 ## How to request a feature
 
@@ -33,7 +32,8 @@ Request features on the [Issue Tracker].
 
 You need Python 3.12+ and [uv]:
 
-1. Install [uv] if you haven't already. Refer to the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
+1. Install [uv] if you haven't already.
+   Refer to the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
 2. Synchronize the development virtual environment and dependencies:
 
    ```console
@@ -59,7 +59,9 @@ We run several types of checks on the codebase.
 
 ### Run Unit Tests
 
-Unit tests are located in the `tests/` directory and are written using the [pytest] testing framework. Run them with coverage:
+Unit tests are located in the `tests/` directory
+and are written using the [pytest] testing framework.
+Run them with coverage:
 
 ```console
 uv run coverage run -m pytest
@@ -76,9 +78,10 @@ uv run mypy src tests
 
 ### Run Linting & Formatting
 
-Check for lint errors and formatting using [ruff]:
+Check Markdown and Python formatting and lint rules using [rumdl] and [ruff]:
 
 ```console
+uv run rumdl check .
 uv run ruff check
 uv run ruff format --check
 ```
@@ -86,6 +89,7 @@ uv run ruff format --check
 To automatically format the code and fix auto-fixable lint issues:
 
 ```console
+uv run rumdl check --fix .
 uv run ruff check --fix
 uv run ruff format
 ```
@@ -108,7 +112,8 @@ uv run deptry .
 
 ## How to release a new version
 
-Update `project.version` in `pyproject.toml` using semantic versioning and merge the change into `main` or `master`.
+Update `project.version` in `pyproject.toml` using semantic versioning
+and merge the change into `main` or `master`.
 After all CI checks pass, Release Drafter publishes a GitHub release tagged with the new version.
 GitHub releases contain source archives only.
 
@@ -133,6 +138,7 @@ This will allow a chance to talk it over with the owners and validate your appro
 [pytest]: https://pytest.org/
 [mypy]: https://mypy.org/
 [ruff]: https://github.com/astral-sh/ruff
+[rumdl]: https://github.com/rvben/rumdl
 [xdoctest]: https://github.com/Erotemic/xdoctest
 [pull request]: https://github.com/{{cookiecutter.github_organization}}/{{cookiecutter.project_name}}/pulls
 
